@@ -1,13 +1,18 @@
 import { useState } from "react";
 
-function ListGroup() {
-  let items = ["Mumbai", "Delhi", "Kolkata", "London"];
+interface ListGroupProps {
+    items: string[];
+    heading: string;
+}
+
+function ListGroup({items, heading}: ListGroupProps) {
+  
   // Hook - Tells React that this function will have data that will change over time
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
   return (
     <>
-      <h1>List</h1>
+      <h1>{heading}</h1>
       {items.length === 0 && <p>No Item Found</p>}
       <ul className="list-group">
         {items.map((item, index) => (
