@@ -1,11 +1,17 @@
+import { useState } from "react";
 import Alert from "./components/Alert";
 import Button from "./components/Button";
 import ListGroup from "./components/ListGroup";
 
 function App() {
+  const [active, setActiveV] = useState(false);
+
   return (
     <div>
-      <Button color="danger" onClick={() => console.log("Clicked")}>
+      {active === true && (
+        <Alert onClose={() => setActiveV(false)}>My Alert</Alert>
+      )}
+      <Button color="danger" onClick={() => setActiveV(true)}>
         My Button
       </Button>
     </div>
